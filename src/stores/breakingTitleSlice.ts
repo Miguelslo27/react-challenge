@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const ELEMENTS_SYMBOLS = [
   'Uub',
@@ -146,7 +146,7 @@ const breakingTitleSlice = createSlice({
   name: "breakingTitle",
   initialState,
   reducers: {
-    setTitle: (state, action) => {
+    setTitle: (state, action: PayloadAction<{ firstName: string; lastName: string; }>) => {
       return { ...state, ...action.payload };
     },
     breakifyTitle: (state) => {

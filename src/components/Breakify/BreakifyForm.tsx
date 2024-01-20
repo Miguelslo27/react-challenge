@@ -1,23 +1,25 @@
 'use client';
 
 import { breakifyTitle, setTitle } from "@/stores/breakingTitleSlice";
-import { RootState } from "@/stores/store";
-import { ChangeEvent } from "react";
+import { AppDispatch, RootState } from "@/stores/store";
+import { ChangeEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const BreakifyForm = () => {
-  const title = useSelector((state: RootState) => state.breakingTitle);
-  const dispatch = useDispatch();
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleFirstNameChange = (ev: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setTitle({ ...title, firstName: ev.target.value }));
+    setFirstName(ev.target.value);
   };
 
   const handleLastNameChange = (ev: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setTitle({ ...title, lastName: ev.target.value }));
+    setLastName(ev.target.value);
   };
 
   const handleBreakifyClick = () => {
+    dispatch(setTitle({ firstName, lastName }));
     dispatch(breakifyTitle());
   }
 
