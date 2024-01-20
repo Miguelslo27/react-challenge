@@ -1,24 +1,24 @@
 'use client';
 
+import { breakifyTitle, setTitle } from "@/stores/breakingTitleSlice";
+import { RootState } from "@/stores/store";
 import { ChangeEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-type BreakifyFormProps = {
-  onFirstName: (value: string) => void;
-  onLastName: (value: string) => void;
-  onBreakifySubmit: () => void;
-};
+const BreakifyForm = () => {
+  const title = useSelector((state: RootState) => state.breakingTitle);
+  const dispatch = useDispatch();
 
-const BreakifyForm: React.FC<BreakifyFormProps> = ({ onFirstName, onLastName, onBreakifySubmit }) => {
   const handleFirstNameChange = (ev: ChangeEvent<HTMLInputElement>) => {
-    onFirstName(ev.target.value);
+    dispatch(setTitle({ ...title, firstName: ev.target.value }));
   };
 
   const handleLastNameChange = (ev: ChangeEvent<HTMLInputElement>) => {
-    onLastName(ev.target.value);
+    dispatch(setTitle({ ...title, lastName: ev.target.value }));
   };
 
   const handleBreakifyClick = () => {
-    onBreakifySubmit();
+    dispatch(breakifyTitle());
   }
 
   return (
