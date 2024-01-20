@@ -1,13 +1,18 @@
 'use client';
 
-import { RootState } from "@/stores/store";
 import { useSelector } from "react-redux";
+import { RootState } from "@/stores/store";
 
 const Breakify = () => {
   const title = useSelector((state: RootState) => state.breakingTitle);
 
   return (
-    <h1 dangerouslySetInnerHTML={{ __html: title.breakified }}></h1>
+    <>
+      {title.breakified.loading
+        ? <h1>Loading...</h1>
+        : <h1 dangerouslySetInnerHTML={{ __html: title.breakified.title }}></h1>
+      }
+    </>
   );
 };
 

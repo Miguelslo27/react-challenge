@@ -1,9 +1,9 @@
 'use client';
 
-import { breakifyTitle, setTitle } from "@/stores/breakingTitleSlice";
-import { AppDispatch, RootState } from "@/stores/store";
 import { ChangeEvent, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/stores/store";
+import { breakifyTitle, setTitle } from "@/stores/breakingTitleSlice";
 
 const BreakifyForm = () => {
   const [firstName, setFirstName] = useState<string>('');

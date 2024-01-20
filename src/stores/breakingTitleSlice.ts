@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const ELEMENTS_SYMBOLS = [
   'Uub',
@@ -131,7 +131,11 @@ const breakify = (title: string) => {
 interface BreakingTitleSlice {
   firstName: string;
   lastName: string;
-  breakified: string;
+  breakified: {
+    title: string;
+    loading: boolean;
+    error: null;
+  };
 };
 
 const firstName = 'Breaking';
@@ -139,7 +143,11 @@ const lastName = 'Bad';
 const initialState: BreakingTitleSlice = {
   firstName,
   lastName,
-  breakified: `${breakify(firstName)} ${breakify(lastName)}`,
+  breakified: {
+    title: `${breakify(firstName)} ${breakify(lastName)}`,
+    loading: false,
+    error: null,
+  },
 };
 
 const breakingTitleSlice = createSlice({
@@ -149,11 +157,35 @@ const breakingTitleSlice = createSlice({
     setTitle: (state, action: PayloadAction<{ firstName: string; lastName: string; }>) => {
       return { ...state, ...action.payload };
     },
-    breakifyTitle: (state) => {
-      return { ...state, breakified: `${breakify(state.firstName)} ${breakify(state.lastName)}` };
-    },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(breakifyTitle.pending, (state) => {
+        return { ...state, breakified: {
+          ...state.breakified,
+          loading: true,
+        }};
+      })
+      .addCase(breakifyTitle.fulfilled, (state) => {
+        return { ...state, breakified: {
+          ...state.breakified,
+          loading: false,
+          title: `${breakify(state.firstName)} ${breakify(state.lastName)}`,
+        }};
+      });
+  }
 });
 
+export const breakifyTitle = createAsyncThunk(
+  "breakingTitle/breakifyTitle",
+  async () => {
+    // Fake waiting time
+    await new Promise(resolve => {
+      setTimeout(resolve, 1050);
+    });
+    return;
+  }
+)
+
 export default breakingTitleSlice.reducer;
-export const { setTitle, breakifyTitle } = breakingTitleSlice.actions;
+export const { setTitle } = breakingTitleSlice.actions;
