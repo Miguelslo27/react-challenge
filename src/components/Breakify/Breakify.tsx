@@ -1,6 +1,8 @@
 'use client';
 
+import { RootState } from "@/stores/store";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const ELEMENTS_SYMBOLS = [
   'Uub',
@@ -132,8 +134,10 @@ type BreakifyProps = {
   title?: BrakingTitleType;
 };
 
-const Breakify: React.FC<BreakifyProps> = ({ title = { firstName: 'Breaking', lastName: 'Bad' } }) => {
-  const [breakifiedTitle, setBreakifiedTitle] = useState(`${title.firstName} ${title.lastName}`);
+const Breakify: React.FC<BreakifyProps> = () => {
+  const [breakifiedTitle, setBreakifiedTitle] = useState('');
+
+  const title = useSelector((state: RootState) => state.breakingTitle);
 
   useEffect(() => {
     setBreakifiedTitle(`${breakify(title.firstName || '')} ${breakify(title.lastName || '')}`);

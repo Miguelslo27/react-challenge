@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Breakify, { BrakingTitleType } from "@/components/Breakify/Breakify";
 import BreakifyForm from "@/components/Breakify/BreakifyForm";
+import StoreProvider from "@/components/StoreProvider/StoreProvider";
 
 export default function Home() {
   const [title, setTitle] = useState<BrakingTitleType>();
@@ -23,13 +24,13 @@ export default function Home() {
   };
 
   return (
-    <>
-      <Breakify title={title} />
+    <StoreProvider>
+      <Breakify /* title={title} */ />
       <BreakifyForm
         onFirstName={handleFirstNameChange}
         onLastName={handleLastNameChange}
         onBreakifySubmit={handleBreakifyClick}
       />
-    </>
+    </StoreProvider>
   );
 };
