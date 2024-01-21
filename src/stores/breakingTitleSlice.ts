@@ -144,7 +144,7 @@ const initialState: BreakingTitleSlice = {
   firstName,
   lastName,
   breakified: {
-    title: `${breakify(firstName)} ${breakify(lastName)}`,
+    title: `<span>${breakify(firstName)}</span> <span>${breakify(lastName)}</span>`,
     loading: false,
     error: null,
   },
@@ -170,7 +170,7 @@ const breakingTitleSlice = createSlice({
         return { ...state, breakified: {
           ...state.breakified,
           loading: false,
-          title: `${breakify(state.firstName)} ${breakify(state.lastName)}`,
+          title: `<span>${breakify(state.firstName)}</span> <span>${breakify(state.lastName)}</span>`,
         }};
       });
   }
