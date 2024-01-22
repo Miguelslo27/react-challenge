@@ -74,3 +74,9 @@ The application will be accessible at `http://localhost:3000`.
 
 - For more information on Next.js, visit [Next.js Documentation](https://nextjs.org/docs).
 - For more information on pnpm, visit [pnpm Documentation](https://pnpm.io/).
+
+## Visit the Deployed Project
+
+While the initial requirement was to deploy the project on GitHub Pages for public accessibility, I encountered an issue with the Next.js build. As a result, I opted to deploy it on Vercel, the native cloud provider for Next.js applications.
+
+- Explore the Breakify App on [Vercel](https://react-challenge-ten-flame.vercel.app/)
