@@ -1,13 +1,76 @@
 # Challenge React.js ![](https://pasteboard.co/byC31Sq5OMgz.png)
 
-1. 1. Fork this public repository ([https://github.com/sebasworkana/react-challenge.git](https://github.com/sebasworkana/react-challenge.git) ), and create a new branch with the name React-Challenge-"Name and Last Name", then push it to the created branch and give access to us to review the code.
-2. The main challenge is that you create a Page with the following Style and format.
-![alt text](https://imageupload.io/en/jfSVositjWovwnf)
+This challenge was created and bootstrapped with Create Next App.
 
-1. You need to enumerate all Periodic table of the elements on CSS class and make use of it, matching words in First name and last name "Highlighting" them as in the image.
-2. First, install "react-redux", then use the useDispatch and useSelector react-redux hooks in the components.
-3. For this challenge use redux-thunk in it. Moreover, use the react-redux hooks to give a better impression and avoid older techniques. Share data among components without using props.
-4. Is mandatory to use linter like ESLINT
-5. Create npm scripts to run project and make sure to create a readme with instructions to run project
-6. Will be valuable if you can create Docker compose file to run all environment
-7. Use github pages to host web app and test
+# Prerequisites
+
+Before you begin, make sure you have the following software installed on your machine:
+
+- Node.js v20 (https://nodejs.org/)
+- pnpm (https://pnpm.io/) - Please install pnpm as your package manager.
+
+## Getting Started
+
+Follow these steps to run the project locally:
+
+1. Clone the repository:
+
+  ```bash
+  git clone git@github.com:Miguelslo27/react-challenge.git
+  ```
+
+2. Navigate to the project directory:
+
+  ```bash
+  cd react-challenge
+  ```
+
+3. Install dependencies using pnpm:
+
+  ```bash
+  pnpm install
+  ```
+
+## Development
+
+To run the development server, use the following command:
+
+```bash
+pnpm dev
+```
+
+The application will be available at `http://localhost:3000`.
+
+## Production
+
+To build and start the production server, run the following commands:
+
+```bash
+pnpm build
+pnpm start
+```
+
+The production server will be available at `http://localhost:3000`.
+
+## Docker
+
+To run the project using Docker, follow these steps:
+
+1. Build the Docker image:
+
+  ```bash
+  docker build -t react-challenge .
+  ```
+
+2. Run the Docker container in the background:
+
+  ```bash
+  docker run -d -p 3000:3000 react-challenge
+  ```
+
+The application will be accessible at `http://localhost:3000`.
+
+## Additional Information
+
+- For more information on Next.js, visit [Next.js Documentation](https://nextjs.org/docs).
+- For more information on pnpm, visit [pnpm Documentation](https://pnpm.io/).

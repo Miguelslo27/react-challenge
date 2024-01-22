@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-solid: 33, 33, 33;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --color-breaking-bad: 18, 80, 54;
+  --element-square-size: 90px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-solid: 33, 33, 33;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-solid));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.breaking-bad-title {
+  span {
+    display: block;
+    line-height: calc(var(--element-square-size) + 1rem);
+
+    strong {
+      font-family: 'Helvetica';
+      font-weight: bold;
+      line-height: calc(var(--element-square-size));
+      display: inline-block;
+      min-width: var(--element-square-size);
+      min-height: var(--element-square-size);
+      background: rgb(var(--color-breaking-bad))
+    }
+  }
+}
