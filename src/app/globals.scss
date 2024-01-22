@@ -34,11 +34,12 @@ body {
 .breaking-bad-title {
   span {
     display: block;
-    line-height: var(--element-square-size);
+    line-height: calc(var(--element-square-size) + 1rem);
 
     strong {
       font-family: 'Helvetica';
       font-weight: bold;
+      line-height: calc(var(--element-square-size));
       display: inline-block;
       min-width: var(--element-square-size);
       min-height: var(--element-square-size);

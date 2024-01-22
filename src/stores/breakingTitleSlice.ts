@@ -125,7 +125,7 @@ const breakify = (title: string) => {
   const elementRegExp = new RegExp(`(${ELEMENTS_SYMBOLS.join('|')})`, 'i');
   const match = title.match(elementRegExp)?.[0] || '';
   const elementSymbol = `${match.charAt(0).toUpperCase()}${match.slice(1)}`;
-  return title.replace(match || '', `<strong>${elementSymbol}</strong>`)
+  return title.replace(match, `<strong>${elementSymbol}</strong>`)
 };
 
 interface BreakingTitleSlice {

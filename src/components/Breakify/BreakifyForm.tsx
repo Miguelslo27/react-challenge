@@ -28,11 +28,11 @@ const BreakifyForm = () => {
       <div className="flex align-center justify-between">
         <div className="flex flex-col my-4 w-[48%]">
           <label htmlFor="firstName">First name</label>
-          <input type="text" className="text-gray-900 p-2 my-2 rounded-md" name="firstName" onChange={handleFirstNameChange} />
+          <input type="text" className="text-gray-900 p-2 my-2 rounded-md" name="firstName" id="firstName" onChange={handleFirstNameChange} />
         </div>
         <div className="flex flex-col my-4 w-[48%]">
-          <label htmlFor="firstName">Last name</label>
-          <input type="text" className="text-gray-900 p-2 my-2 rounded-md" name="lastName" onChange={handleLastNameChange} />
+          <label htmlFor="lastName">Last name</label>
+          <input type="text" className="text-gray-900 p-2 my-2 rounded-md" name="lastName" id="lastName" onChange={handleLastNameChange} />
         </div>
       </div>
       <button className="bg-breaking-bad text-lg p-2 rounded-md" onClick={handleBreakifyClick}>Breakify</button>
