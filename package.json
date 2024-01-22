@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "pnpm build && gh-pages -d build -b react-challenge"
+    "deploy": "pnpm build && gh-pages -d .next -b react-challenge"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
